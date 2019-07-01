@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    @component('admin.components.breadcrumbs')
+    @component('admin.components.breadcrumb')
         @slot('title') Category list @endslot
         @slot('parent') Main @endslot
         @slot('active') Category @endslot
@@ -10,7 +10,7 @@
     
     <hr>
 
-    <a href="{{route('admin.category.create')}}" class=btn btn-primary pull-right>Create category</a>
+    <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right">Create category</a>
     <table class="table table-striped">
         <thead>
             <th>Name</th>
