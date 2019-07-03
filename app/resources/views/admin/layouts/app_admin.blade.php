@@ -36,10 +36,13 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li>
+                        <a href="{{route('admin.index')}}">Dashboard</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{route('admin.category.index')}}">Category</a></li>             
+                                <li><a href="{{route('admin.category.index')}}">Category</a></li>             
                                 <li><a href="{{route('admin.article.index')}}">Materials</a></li>             
                             </ul>
                         </li>
