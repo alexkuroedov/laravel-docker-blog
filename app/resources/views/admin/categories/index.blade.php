@@ -1,6 +1,6 @@
 @extends('admin.layouts.app_admin')
 @section('content')
-
+ 
 <div class="container">
     @component('admin.components.breadcrumb')
         @slot('title') Category list @endslot
@@ -22,8 +22,16 @@
             <tr>
                 <td>{{$category->title}}</td>
                 <td>{{$category->published}}</td>
-                <td>
-                    <a href="{{route('admin.category.edit', $category)}}">Edit</a>
+                <td class="text-right">
+
+                    <form onsubmit="if(confirm('Delete?')){return true}else{return false}" action="{{route('admin.category.destroy', $category)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        {{ csrf_field() }}
+
+                        <a class="btn btn-default" href="{{route('admin.category.edit', $category)}}">Edit</a>
+                        <button class="btn" type="submit">Delete</button>
+                    </form>
+
                 </td>
             </tr>
             @empty
