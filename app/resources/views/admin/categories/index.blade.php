@@ -23,7 +23,7 @@
                 <td>{{$category->title}}</td>
                 <td>{{$category->published}}</td>
                 <td>
-                    <a href="{{route('admin.category.edit',['id' => $category->id])}}">Edit</a>
+                    <a href="{{route('admin.category.edit', $category)}}">Edit</a>
                 </td>
             </tr>
             @empty

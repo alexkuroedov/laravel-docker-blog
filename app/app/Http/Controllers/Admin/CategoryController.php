@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+ 
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -33,7 +33,7 @@ class CategoryController extends Controller
             'delimiter' => ''
         ]);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -43,7 +43,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
-        return redirect()->route('admin.category.index');       
+        return redirect()->route('admin.category.index');      
     }
 
     /**
@@ -63,9 +63,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {
-        //
+    public function edit(Category $category){
+
+        return view('admin.categories.edit', [
+            'category' => $category,
+            'categories' => Category::with('children')->where('parent_id','0')->get(),
+            'delimiter' => ''
+        ]);
     }
 
     /**
@@ -77,7 +81,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->except('slug'));
+        return redirect()->route('admin.category.index');
     }
 
     /**
