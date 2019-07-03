@@ -1,5 +1,5 @@
 data/backup/*.sql
-app/node_modules
+node_modules
 app/public/hot
 app/public/storage
 app/storage/*.key
