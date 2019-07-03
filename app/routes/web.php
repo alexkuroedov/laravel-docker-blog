@@ -17,9 +17,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], 
     Route::resource('/category', 'CategoryController', ['as'=>'admin']);
     Route::resource('/article', 'ArticleController', ['as'=>'admin']);
 
-    Route::group(['prefix' => 'user_managment', 'namespace' => 'UserManagment'], function() {
-        Route::resource('/user', 'UserController', ['as' => 'admin.user_managment']);
-    });
+    // Route::group(['prefix' => 'user_managment', 'namespace' => 'UserManagment'], function() {
+    //     Route::resource('/user', 'UserController', ['as' => 'admin.user_managment']);
+    // });
   });
 
 
